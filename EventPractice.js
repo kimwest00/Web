@@ -7,15 +7,16 @@ class EventPractice extends Component {
     
     handleChange=(e)=>{
         this.setState({
-            message: e.target.value
+            [e.target.name]: e.target.value
         });
 
 
     }
     handleClick=()=>{
-        alert(this.state.message);//메세지박스 출력
+        alert(this.state.username + ': '+this.state.message);
         this.setState({
-            message : ''
+            username:'',
+            message :''
         });
 
     }
@@ -25,8 +26,15 @@ class EventPractice extends Component {
                 <h1>이벤트</h1>
                 <input
                 type="text"
+                name="username"
+                placeholder="사용자명"//사용자명 input 추가
+                value ={this.state.username}
+                onChange={this.handleChange}
+                />
+                <input
+                type="text"
                 name="message"
-                placeholder="아무거나 입력하렴"
+                placeholder="아무말입력ㄱ"
                 value ={this.state.message}
                 onChange={this.handleChange}
                 />
