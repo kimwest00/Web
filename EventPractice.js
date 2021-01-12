@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 class EventPractice extends Component {
     state={
+        username:'',//원래 썻어야됐는데 빼먹음
         message: ' '
     }
     
@@ -18,8 +19,13 @@ class EventPractice extends Component {
             username:'',
             message :''
         });
-
     }
+    /*handleKeyPress=(e)=>{
+
+        if(e.key==='Enter'){
+            this.handleClick();
+        }
+    }*/
     render(){
         return(
             <div>
@@ -37,6 +43,7 @@ class EventPractice extends Component {
                 placeholder="아무말입력ㄱ"
                 value ={this.state.message}
                 onChange={this.handleChange}
+                //onKeyPress={this.handleKeyPress}
                 />
                 <button onClick={this.handleClick}>확인</button>
             </div>
