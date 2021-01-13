@@ -1,3 +1,4 @@
+//더블클릭하고 다시 페이지를 로드해야 반영되는건가..?
 import React,{useState} from  'react';
 
 const IterationSample =() =>{
@@ -19,15 +20,23 @@ const IterationSample =() =>{
         setNextId(nextId+1);
         setNames(nextNames);
         setInputText('');
+       
+
     };
-    const namesList = names.map(name=><li key={name.id}>{name.text}</li>);
+    const onRemove = id =>{
+        const nextNames = names.filter(name => name.id !== id);
+        setNames(nextNames);
+    };
+    
+    const namesList = names.map(name=><li key={name.id} onDoubleClick={()=> onRemove(name.Id)}>
+        {name.text}</li>);
     return(
     <>
     <input value={inputText} onChange={onChange}/>
     <button onClick={onClick}>추가</button>
     
     
-    <u1>{namesList}</u1>
+    <ul>{namesList}</ul>
     </>
     );
 
